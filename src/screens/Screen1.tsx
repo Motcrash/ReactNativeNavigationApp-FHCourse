@@ -16,14 +16,30 @@ export const Screen1 = ( { navigation }: Props ) => {
             onPress = { () => navigation.navigate('Screen2')}
         /> 
 
-        <TouchableOpacity
-          onPress = { () => navigation.navigate('PersonScreen', {
-            id: 1,
-            name: 'Pedro'
-          })}
-        >
-          <Text>Pedro</Text>
-        </TouchableOpacity>
+        <View style = {{ flexDirection: 'row'}}>
+          <TouchableOpacity
+            style = {{
+              ...styles.btnScreens,
+              backgroundColor: '#5856D6',
+            }}
+            onPress = { () => navigation.navigate('PersonScreen', {
+              id: 1,
+              name: 'Pedro'
+            })}
+          >
+            <Text style= { styles.btnScreenText }>Pedro</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style = { styles.btnScreens }
+            onPress = { () => navigation.navigate('PersonScreen', {
+              id: 2,
+              name: 'Juan'
+            })}
+          >
+            <Text style= { styles.btnScreenText }>Juan</Text>
+          </TouchableOpacity>
+        </View>
 
     </View>
   )
