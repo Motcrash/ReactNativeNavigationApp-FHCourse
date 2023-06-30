@@ -30,6 +30,13 @@ export const Screen1 = ( { navigation }: Propas ) => {
             onPress = { () => navigation.navigate('Screen2')}
         /> 
 
+        <Text style={{
+          marginVertical: 20,
+          fontSize: 20,
+        }}>
+          Navegar con argumentos
+        </Text>
+
         <View style = {{ flexDirection: 'row'}}>
           <TouchableOpacity
             style = {{
