@@ -27,7 +27,6 @@ export const TabsAndroid = () => {
       screenOptions={ ( {route} ) => ({
         tabBarActiveTintColor: colors.primary,
         tabBarStyle: {
-          borderTopColor: colors.primary,
           borderTopWidth: 0,
           elevation: 0,
         },
