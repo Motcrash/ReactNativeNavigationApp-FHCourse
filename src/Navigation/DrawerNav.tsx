@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Icon from 'react-native-vector-icons/Ionicons';
 import { DrawerContentComponentProps, DrawerContentScrollView, createDrawerNavigator } from '@react-navigation/drawer';
 import { SettingScreen } from '../screens/SettingScreen';
 import { Text, useWindowDimensions, View, Image, TouchableOpacity } from 'react-native';
@@ -14,19 +14,34 @@ export const DrawerNav = () => {
 
   return (
     <Drawer.Navigator
-      screenOptions={{
+      screenOptions={ ({ route }) => ({
         drawerType: width >= 768 ? 'permanent' : 'front',
-      }}
-      drawerContent={ ( props ) => <DrawerConten { ...props } />}
+        drawerLabel: () => {
+          const iconName:string = ''
+          switch ( route.name ) {
+            case 'Tabs':
+                return 
+
+            case 'Settings':
+                return <Text><Icon name="people-outline" size={20} color="#900" /></Text>
+
+            default:
+              break;
+          }
+
+          // return <Text><Icon name={ iconName } size={20} color="#900" /></Text>
+      }
+      })}
+      drawerContent={ ( props ) => <DrawerContent { ...props } />}
     > 
-      <Drawer.Screen name="Tabs" component={ Tabs } />
-      <Drawer.Screen name="SettingScreen" component={SettingScreen} />
+      <Drawer.Screen name="Tabs" component={ Tabs }/>
+      <Drawer.Screen name="Settings" component={ SettingScreen } />
     </Drawer.Navigator>
 
   );
 }
 
-const DrawerConten = ( { navigation }: DrawerContentComponentProps): JSX.Element => {
+const DrawerContent = ( { navigation }: DrawerContentComponentProps): JSX.Element => {
   return (
     <DrawerContentScrollView>
       <View style= { styles.avatarContainer }> 
@@ -44,13 +59,19 @@ const DrawerConten = ( { navigation }: DrawerContentComponentProps): JSX.Element
           <TouchableOpacity style={ styles.menuButton}
             onPress={ () => navigation.navigate('Tabs')}  
           >
-            <Text style = { styles.menuText}>Tabs</Text>
+            <View style= { styles.drawerItem }>
+              <Text><Icon name="file-tray-full-outline" size={30} color="#7f440a" /> </Text>
+              <Text style = { styles.menuText}> Tabs</Text>
+            </View>
           </TouchableOpacity>
 
           <TouchableOpacity style={ styles.menuButton}
-            onPress={ () => navigation.navigate('SettingScreen')}  
+            onPress={ () => navigation.navigate('Settings')}  
           >
-            <Text style = { styles.menuText}>Settings</Text>
+            <View style= { styles.drawerItem }>
+              <Text><Icon name="settings-outline" size={30} color="#7f440a" /> </Text>
+              <Text style = { styles.menuText}> Settings</Text>
+            </View>
           </TouchableOpacity>
       </View>
     </DrawerContentScrollView>

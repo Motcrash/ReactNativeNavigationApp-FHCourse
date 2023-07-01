@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native'
 
 export const colors = {
-    primary: '#ad860a',
+    primary: '#6b9997',
 }
 
 export const styles = StyleSheet.create({
@@ -27,6 +27,20 @@ export const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold'
     },
+    personBtn:{
+        backgroundColor: '#059b9a',
+        width: 150,
+        height: 50,
+        borderRadius: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    personBtnText:{
+        color: 'white',
+        justifyContent: 'center', 
+        alignItems: 'center',
+        fontSize: 20,
+    },
     avatarContainer: {
         alignItems: 'center',
         marginTop: 20,
@@ -45,5 +59,8 @@ export const styles = StyleSheet.create({
     },
     menuText:{
         fontSize:20,
+    },
+    drawerItem:{
+        flexDirection: 'row',
     },
 });

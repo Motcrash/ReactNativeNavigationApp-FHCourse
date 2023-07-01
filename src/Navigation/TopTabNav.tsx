@@ -1,4 +1,5 @@
 import React from 'react';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { ChatScreen } from '../screens/ChatScreen';
 import { ContactScreen } from '../screens/ContactScreen';
@@ -30,28 +31,26 @@ export const TopTabNav = () => {
                 shadowColor: 'transparent',
                 elevation: 0,
             },
-            tabBarIcon: ({ color }) => {
-  
+            tabBarIcon: () => {
                 let iconName: string = '';
-                  switch ( route.name ) {
-                    case 'Chat':
-                      iconName = 'Ch'
-                      break;
-        
-                    case 'Contact':
-                      iconName = 'Co'
-                      break;
-        
-                    case 'Album':
-                      iconName = 'Al'
-                      break;
-        
-                    default:
-                      break;
-                  }
-        
-                return <Text style={{ color }}>{ iconName }</Text>
-              }
+                switch ( route.name ) {
+                case 'Chat':
+                    iconName = 'chatbox-ellipses-outline'
+                    break;
+    
+                case 'Contact':
+                    iconName = 'people-outline'
+                    break;
+    
+                case 'Album':
+                    iconName = 'albums-outline'
+                    break;
+    
+                default:
+                    break;
+                }
+                return <Text><Icon name={ iconName } size={20} color="#62462a" /></Text>
+            }
         })}
     >
       <Tab.Screen name="Chat" component={ChatScreen} />

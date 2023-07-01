@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Icon from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Tab1Screen } from '../screens/Tab1Screen';
 import { StackNavigator } from './StackNavigator';
@@ -33,32 +33,30 @@ export const TabsAndroid = () => {
         tabBarLabelStyle:{
           fontSize: 15,
         },
-        tabBarIcon: ({ color, focused }) => {
-  
+        tabBarIcon: () => {
           let iconName: string = '';
-            switch ( route.name ) {
-              case 'Tab1Screen':
-                iconName = 'T1'
-                break;
-  
-              case 'Tab2Screen':
-                iconName = 'T2'
-                break;
-  
-              case 'StackNavigator':
-                iconName = 'St'
-                break;
-  
-              default:
-                break;
-            }
-  
-          return <Text style={{ color }}>{ iconName }</Text>
-        }
+          switch ( route.name ) {
+          case 'Tab1':
+              iconName = 'apps-outline'
+              break;
+
+          case 'Tab2':
+              iconName = 'ellipsis-horizontal-outline'
+              break;
+
+          case 'StackNavigator':
+              iconName = 'file-tray-stacked-outline'
+              break;
+
+          default:
+              break;
+          }
+          return <Text><Icon name={ iconName } size={20} color="black" /></Text>
+      }
       })}
     >
-      <BottomTabAndroid.Screen name="Tab1Screen" options= {{ title: 'Tab1' }} component={ Tab1Screen } />
-      <BottomTabAndroid.Screen name="Tab2Screen" options= {{ title: 'Tab2' }} component={ TopTabNav } />
+      <BottomTabAndroid.Screen name="Tab1" options= {{ title: 'Tab1' }} component={ Tab1Screen } />
+      <BottomTabAndroid.Screen name="Tab2" options= {{ title: 'Tab2' }} component={ TopTabNav } />
       <BottomTabAndroid.Screen name="StackNavigator" options= {{ title: 'Stack' }} component={ StackNavigator } />
     </BottomTabAndroid.Navigator>
   );
@@ -108,8 +106,8 @@ export const TabsIOS = () => {
     }}
 
     >
-      {/* <Tab.Screen name="Tab1Screen" options= {{ title: 'Tab1', tabBarIcon: ( props ) => <Text style= {{ color: props.color}}>T1</Text>}} component={ Tab1Screen } /> */}
-      <BottomTabIOS.Screen name="Tab1Screen" options= {{ title: 'Tab1' }} component={ Tab1Screen } />
+      {/* <Tab.Screen name="Tab1" options= {{ title: 'Tab1', tabBarIcon: ( props ) => <Text style= {{ color: props.color}}>T1</Text>}} component={ Tab1Screen } /> */}
+      <BottomTabIOS.Screen name="Tab1" options= {{ title: 'Tab1' }} component={ Tab1Screen } />
       <BottomTabIOS.Screen name="TopTabNav" options= {{ title: 'Tab2' }} component={ TopTabNav } />
       <BottomTabIOS.Screen name="StackNavigator" options= {{ title: 'Stack' }} component={ StackNavigator } />
     </BottomTabIOS.Navigator>
