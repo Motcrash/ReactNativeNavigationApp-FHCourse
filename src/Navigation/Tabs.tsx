@@ -55,8 +55,8 @@ export const TabsAndroid = () => {
       }
       })}
     >
-      <BottomTabAndroid.Screen name="Tab1" options= {{ title: 'Tab1' }} component={ Tab1Screen } />
-      <BottomTabAndroid.Screen name="Tab2" options= {{ title: 'Tab2' }} component={ TopTabNav } />
+      <BottomTabAndroid.Screen name="Tab1" options= {{ title: 'Icons' }} component={ Tab1Screen } />
+      <BottomTabAndroid.Screen name="Tab2" options= {{ title: 'Top Nav' }} component={ TopTabNav } />
       <BottomTabAndroid.Screen name="StackNavigator" options= {{ title: 'Stack' }} component={ StackNavigator } />
     </BottomTabAndroid.Navigator>
   );
@@ -107,8 +107,8 @@ export const TabsIOS = () => {
 
     >
       {/* <Tab.Screen name="Tab1" options= {{ title: 'Tab1', tabBarIcon: ( props ) => <Text style= {{ color: props.color}}>T1</Text>}} component={ Tab1Screen } /> */}
-      <BottomTabIOS.Screen name="Tab1" options= {{ title: 'Tab1' }} component={ Tab1Screen } />
-      <BottomTabIOS.Screen name="TopTabNav" options= {{ title: 'Tab2' }} component={ TopTabNav } />
+      <BottomTabIOS.Screen name="Tab1" options= {{ title: 'Icons' }} component={ Tab1Screen } />
+      <BottomTabIOS.Screen name="TopTabNav" options= {{ title: 'Top Nav' }} component={ TopTabNav } />
       <BottomTabIOS.Screen name="StackNavigator" options= {{ title: 'Stack' }} component={ StackNavigator } />
     </BottomTabIOS.Navigator>
   );

@@ -63,4 +63,8 @@ export const styles = StyleSheet.create({
     drawerItem:{
         flexDirection: 'row',
     },
+    iconsContainer: {
+        flexDirection: 'row',
+        flexWrap:'wrap',
+    },
 });
