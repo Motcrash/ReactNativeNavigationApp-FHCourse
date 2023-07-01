@@ -22,7 +22,7 @@ export const App = () => {
 const AppState = ( { children } : {children: JSX.Element }) => {
   return(
     <AuthProvider>
-      {children}
+      { children }
     </AuthProvider>
   )
 }

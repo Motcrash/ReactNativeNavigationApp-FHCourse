@@ -1,4 +1,5 @@
-import React, { createContext } from "react"
+import React, { createContext, useReducer } from "react"
+import { authReducer } from "./AuthReducer"
 
 // Information interface
 
@@ -12,6 +13,8 @@ export interface AuthState {
 
 export const authInitialState: AuthState = {
     isLoggedIn: false,
+    username: 'Motcrash',
+    favoriteIcon: 'Hola',
 }
 
 // Context interface 
@@ -28,9 +31,12 @@ export const AuthContext = createContext( {} as AuthContextProps )
 // State provider
 
 export const AuthProvider = ({ children }: { children:JSX.Element } ) => {
+
+    const [authState, dispatch] = useReducer( authReducer, authInitialState)
+
     return(
         <AuthContext.Provider value = {{
-            authState: authInitialState,
+            authState,
             signIn: () => {}
         }}>
             { children }
