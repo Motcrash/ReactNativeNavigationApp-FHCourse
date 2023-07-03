@@ -19,8 +19,8 @@ export const authReducer = ( state: AuthState, action: authAction ):AuthState =>
             return {
                 ...state,
                 isLoggedIn: false,
-                username: 'no-username-yet',
-                favouriteIcon: 'no-favIcon-yet',
+                username: undefined,
+                favouriteIcon: undefined,
             }
             
         case 'changeFavIcon':
