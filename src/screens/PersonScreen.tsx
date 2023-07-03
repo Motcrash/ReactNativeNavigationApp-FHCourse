@@ -1,12 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { View, Text } from 'react-native';
 import { styles } from '../theme/appTheme';
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackparams } from '../Navigation/StackNavigator';
+import { AuthContext } from '../Context/AuthContext';
 
 interface Props extends StackScreenProps <RootStackparams, 'PersonScreen'> {};
 
 export const PersonScreen = ( { route, navigation } : Props ) => {
+
+  const { changeUsername } = useContext( AuthContext )
 
     const params = route.params
     
@@ -15,6 +18,11 @@ export const PersonScreen = ( { route, navigation } : Props ) => {
         title: params.name
       })
     }, [])
+
+    useEffect(() => {
+      changeUsername( params.name )
+    }, [])
+    
     
 
   return (
