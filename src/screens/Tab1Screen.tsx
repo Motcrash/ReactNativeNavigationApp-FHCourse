@@ -5,11 +5,6 @@ import { TouchableIcon } from '../Components/TouchableIcon';
 
 export const Tab1Screen = () => {
 
-  useEffect(() => { 
-    console.log('Tab1Screen Effect')
-  }, [])
-  
-
   return (
     <View style = { styles.globalMargin }>
         <Text style= { styles.title }> Icons </Text>
