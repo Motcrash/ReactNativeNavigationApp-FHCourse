@@ -5,7 +5,6 @@ import { AuthContext } from '../Context/AuthContext';
 
 interface iconsProps {
     iconName: string,
-
 }
 
 export const TouchableIcon = ( { iconName }: iconsProps ) => {
