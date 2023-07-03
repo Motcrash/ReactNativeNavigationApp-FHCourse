@@ -2,8 +2,9 @@ import { AuthState } from './AuthContext';
 
 type authAction = 
     | { type: 'signIn' }
-    | { type: 'changeFavIcon', payload: string }
     | { type: 'logout' }
+    | { type: 'changeFavIcon', payload: string }
+    | { type: 'changeUsername', payload: string}
 
 export const authReducer = ( state: AuthState, action: authAction ):AuthState => {
     switch ( action.type) {
@@ -14,12 +15,6 @@ export const authReducer = ( state: AuthState, action: authAction ):AuthState =>
                 username: 'no-username-yet',
             }
 
-        case 'changeFavIcon':
-            return {
-                ...state,
-                favouriteIcon: action.payload,
-            }
-
         case 'logout':
             return {
                 ...state,
@@ -27,7 +22,19 @@ export const authReducer = ( state: AuthState, action: authAction ):AuthState =>
                 username: 'no-username-yet',
                 favouriteIcon: 'no-favIcon-yet',
             }
-    
+            
+        case 'changeFavIcon':
+            return {
+                ...state,
+                favouriteIcon: action.payload,
+            }
+
+        case 'changeUsername':
+            return {
+                ...state,
+                username: action.payload,
+            }
+
         default:
             return state;
     }
